@@ -20,32 +20,204 @@ resolvers are operated by the same entity or cooperating entities. It can also b
 to discover support for encrypted DNS protocols when the name of an encrypted resolver
 is known. 
     " name="description">
-<meta content="xml2rfc 3.12.3" name="generator">
+<meta content="xml2rfc 3.12.10" name="generator">
 <meta content="draft-ietf-add-ddr-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.3
-    Python 3.9.7
+  xml2rfc 3.12.10
+    Python 3.10.4
     appdirs 1.4.4
-    ConfigArgParse 1.3
-    google-i18n-address 2.5.0
+    ConfigArgParse 1.5.3
+    google-i18n-address 2.5.1
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.5
+    lxml 4.8.0
     MarkupSafe 2.0.1
     pycountry 20.7.3
-    pyflakes 2.3.1
-    PyYAML 5.4.1
-    requests 2.26.0
-    setuptools 52.0.0
+    pyflakes 2.4.0
+    PyYAML 6.0
+    requests 2.27.1
+    setuptools 59.4.0
     six 1.16.0
 -->
 <link href="draft-ietf-add-ddr.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
-<style type="text/css">@import url('https://martinthomson.github.io/i-d-template/fonts.css');
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
-html {
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
   --background-color: #fff;
   --text-color: #222;
   --title-color: #191919;
@@ -55,20 +227,8 @@ html {
   --pilcrow-weak: #ddd;
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
   scrollbar-color: #bbb #eee;
-}
-@media (prefers-color-scheme: dark) {
-html {
-  --background-color: #121212;
-  --text-color: #f0f0f0;
-  --title-color: #fff;
-  --link-color: #4da4f0;
-  --highlight-color: #282828;
-  --line-color: #444;
-  --pilcrow-weak: #444;
-  --pilcrow-strong: #666;
-  scrollbar-color: #777 #333;
-}
 }
 body {
   max-width: 600px;
@@ -85,19 +245,25 @@ body {
 }
 
 /* headings */
-#title, h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Cabin Condensed", sans-serif;
   font-weight: 600;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-#title {
-  padding: 1em 0 0.2em;
+h1#title {
   font-size: 32px;
   line-height: 40px;
   clear: both;
 }
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
 h1, h2, h3 {
   font-size: 22px;
   line-height: 27px;
@@ -111,10 +277,15 @@ h4, h5, h6 {
 .author {
   padding-bottom: 0.3em;
 }
-#abstract+p, #abstract+p code, #abstract+p samp, #abstract+p tt {
+#abstract+p {
   font-size: 18px;
   line-height: 24px;
 }
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
 p {
   padding: 0;
   margin: 0.5em 0;
@@ -151,6 +322,10 @@ div {
 svg {
   display: block;
 }
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
 .alignCenter.art-text {
   background-color: var(--highlight-color);
   border: 1px solid var(--line-color);
@@ -179,7 +354,7 @@ ol, ul {
   padding: 0;
   margin: 0 0 0.5em 2em;
 }
-ol ol, ul ul, ol ul, ul ol {
+:is(ol, ul) :is(ol, ul) {
   margin-left: 1em;
 }
 li {
@@ -194,8 +369,7 @@ ul.empty, .ulEmpty {
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
 }
-ul.compact, .ulCompact,
-ol.compact, .olCompact {
+:is(ul, ol).compact, .ulCompact, .olCompact {
   line-height: 100%;
   margin: 0 0 0 2em;
 }
@@ -211,7 +385,7 @@ dl > dd {
   margin-bottom: .8em;
   min-height: 1.3em;
 }
-dl.compact > dd, .dlCompact > dd {
+:is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0em;
 }
 dl > dd > dl {
@@ -245,7 +419,16 @@ a.xref {
 /* Figures */
 tt, code, pre {
   background-color: var(--highlight-color);
-  font: 14px/22px 'Oxygen Mono', monospace;
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
 }
 pre {
   border: 1px solid var(--line-color);
@@ -271,17 +454,35 @@ figcaption, caption {
   text-align: left;
 }
 @media screen {
-  pre {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
     display: inline-block;
     overflow-x: auto;
+  }
+  pre {
     max-width: 100%;
     width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
   }
   figure pre {
     display: block;
     width: calc(100% - 25px);
   }
-  pre + .pilcrow {
+  :is(pre, svg) + .pilcrow {
     display: inline-block;
     vertical-align: text-bottom;
     padding-bottom: 8px;
@@ -295,9 +496,6 @@ aside, blockquote {
   font-style: italic;
 }
 blockquote {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
   margin: 1em 0;
 }
 cite {
@@ -333,17 +531,11 @@ th, td {
 th {
   background-color: var(--line-color);
 }
-tr:nth-child(2n) > td {
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
   background-color: var(--background-color);
 }
-tr:nth-child(2n+1) > td {
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
-}
-thead+tbody > tr:nth-child(2n) > td {
-  background-color: var(--highlight-color);
-}
-thead+tbody > tr:nth-child(2n+1) > td {
-  background-color: var(--background-color);
 }
 table caption {
   margin: 0;
@@ -383,8 +575,9 @@ hr {
 }
 .bcp14 {
   font-variant: small-caps;
+  font-weight: 600;
+  font-size: 14.5px;
 }
-
 .role {
   font-variant: all-small-caps;
 }
@@ -468,36 +661,8 @@ hr {
 }
 
 /* index */
-.index ul {
-  margin: 0 0 0 1em;
-  padding: 0;
-  list-style: none;
-}
-.index ul ul {
-  margin: 0;
-}
-.index li {
-  margin: 0;
-  text-indent: -2em;
-  padding-left: 2em;
-  padding-bottom: 5px;
-}
-.indexIndex {
-  margin: 0.5em 0 1em;
-}
-.index a {
-  font-weight: 700;
-}
-/* make the index two-column on all but the smallest screens */
-@media (min-width: 500px) {
-  .index ul {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  .index ul ul {
-    column-count: 1;
-    column-gap: 0;
-  }
+#rfc\.index\.index + ul {
+  margin-left: 0;
 }
 
 /* authors */
@@ -651,7 +816,7 @@ hr.addr {
     margin: 0 0 0 4px;
     font-size: var(--small-font-size);
   }
-  #toc ul p, #toc ul li {
+  #toc ul :is(p, li) {
     margin: 2px 0;
     line-height: 22px;
   }
@@ -761,13 +926,13 @@ dl.dlNewline > dt {
 }
 
 /* Provide styling for table cell text alignment */
-table .text-left, table .text-left {
+table .text-left {
   text-align: left;
 }
-table .text-center, table .text-center {
+table .text-center {
   text-align: center;
 }
-table .text-right, table .text-right {
+table .text-right {
   text-align: right;
 }
 
@@ -834,11 +999,34 @@ address div.right {
   }
 
 }
-/* Tweak the bcp14 keyword presentation */
-.bcp14 {
-  font-variant: small-caps;
-  font-weight: bold;
-  font-size: 0.9em;
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([stroke="fill"], [fill^="#fff"]) {
+  fill: var(--background-color);
 }
 </style>
 
@@ -848,11 +1036,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DDR</td>
-<td class="right">April 2022</td>
+<td class="right">June 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Pauly, et al.</td>
-<td class="center">Expires 6 October 2022</td>
+<td class="center">Expires 25 December 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -865,12 +1053,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-add-ddr-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-04-04" class="published">4 April 2022</time>
+<time datetime="2022-06-23" class="published">23 June 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-10-06">6 October 2022</time></dd>
+<dd class="expires"><time datetime="2022-12-25">25 December 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -938,7 +1126,7 @@ is known.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 October 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 December 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1083,7 +1271,7 @@ details if a resolver name is provisioned by a network (<a href="#encrypted" cla
 Resolver is designated by the originally provisioned resolver. "Designated" in
 this context means that the resolvers are operated by the same entity or
 cooperating entities; for example, the resolvers are accessible on the same
-IP address, or there is a certificate that claims ownership over the 
+IP address, or there is a certificate that claims ownership over the
 IP address for the original designating resolver.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <div id="specification-of-requirements">
 <section id="section-1.1">
@@ -1158,7 +1346,7 @@ _dns.example.net.  7200  IN SVCB 1 example.net. (
 by querying for <code>_dns.example.net</code>:<a href="#section-3-5" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-6">
 <pre>
-_dns.example.net  7200  IN SVCB 1 dot.example.net (
+_dns.example.net.  7200  IN SVCB 1 dot.example.net (
      alpn=dot port=8530 )
 </pre><a href="#section-3-6" class="pilcrow">¶</a>
 </div>
@@ -1200,7 +1388,7 @@ the domain name used for DoT or used to construct the DoH template MUST be provi
 by querying for <code>_dns.resolver.arpa</code>:<a href="#section-4-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-4">
 <pre>
-_dns.resolver.arpa  7200  IN SVCB 1 doh.example.net (
+_dns.resolver.arpa.  7200  IN SVCB 1 doh.example.net (
      alpn=h2 dohpath=/dns-query{?dns} )
 </pre><a href="#section-4-4" class="pilcrow">¶</a>
 </div>
@@ -1208,7 +1396,7 @@ _dns.resolver.arpa  7200  IN SVCB 1 doh.example.net (
 by querying for <code>_dns.resolver.arpa</code>:<a href="#section-4-5" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-6">
 <pre>
-_dns.resolver.arpa  7200  IN SVCB 1 dot.example.net (
+_dns.resolver.arpa.  7200  IN SVCB 1 dot.example.net (
      alpn=dot port=8530 )
 </pre><a href="#section-4-6" class="pilcrow">¶</a>
 </div>
@@ -1383,7 +1571,7 @@ prevents a client from receiving an SVCB record that will fail to authenticate
 because the forwarder's IP address is not in the upstream resolver's Designated
 Resolver's TLS certificate SAN field. A DNS forwarder which already acts as a
 completely blind forwarder MAY choose to forward these queries when the operator
-expects that this does not apply, either because the operator knows the upstream
+expects that this does not apply, either because the operator knows that the upstream
 resolver does have the forwarder's IP address in its TLS certificate's SAN field
 or that the operator expects clients of the unencrypted resolver to use the SVCB
 information opportunistically.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
@@ -1528,31 +1716,31 @@ Special-Use Domain", listing this document as the reference.<a href="#section-8.
 <dl class="references">
 <dt id="I-D.ietf-add-svcb-dns">[I-D.ietf-add-svcb-dns]</dt>
         <dd>
-<span class="refAuthor">Schwartz, B.</span>, <span class="refTitle">"Service Binding Mapping for DNS Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-add-svcb-dns-02</span>, <time datetime="2022-02-01" class="refDate">1 February 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-add-svcb-dns-02">https://datatracker.ietf.org/doc/html/draft-ietf-add-svcb-dns-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Schwartz, B.</span>, <span class="refTitle">"Service Binding Mapping for DNS Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-add-svcb-dns-03</span>, <time datetime="2022-04-22" class="refDate">22 April 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-add-svcb-dns-03">https://datatracker.ietf.org/doc/html/draft-ietf-add-svcb-dns-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-dnsop-svcb-https">[I-D.ietf-dnsop-svcb-https]</dt>
         <dd>
-<span class="refAuthor">Schwartz, B.</span>, <span class="refAuthor">Bishop, M.</span>, and <span class="refAuthor">E. Nygren</span>, <span class="refTitle">"Service binding and parameter specification via the DNS (DNS SVCB and HTTPS RRs)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dnsop-svcb-https-08</span>, <time datetime="2021-10-12" class="refDate">12 October 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-08">https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-08</a>&gt;</span>. </dd>
+<span class="refAuthor">Schwartz, B.</span>, <span class="refAuthor">Bishop, M.</span>, and <span class="refAuthor">E. Nygren</span>, <span class="refTitle">"Service binding and parameter specification via the DNS (DNS SVCB and HTTPS RRs)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dnsop-svcb-https-10</span>, <time datetime="2022-05-24" class="refDate">24 May 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-10">https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-10</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1918">[RFC1918]</dt>
         <dd>
-<span class="refAuthor">Rekhter, Y.</span>, <span class="refAuthor">Moskowitz, B.</span>, <span class="refAuthor">Karrenberg, D.</span>, <span class="refAuthor">de Groot, G. J.</span>, and <span class="refAuthor">E. Lear</span>, <span class="refTitle">"Address Allocation for Private Internets"</span>, <span class="seriesInfo">BCP 5</span>, <span class="seriesInfo">RFC 1918</span>, <span class="seriesInfo">DOI 10.17487/RFC1918</span>, <time datetime="1996-02" class="refDate">February 1996</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc1918">https://datatracker.ietf.org/doc/html/rfc1918</a>&gt;</span>. </dd>
+<span class="refAuthor">Rekhter, Y.</span>, <span class="refAuthor">Moskowitz, B.</span>, <span class="refAuthor">Karrenberg, D.</span>, <span class="refAuthor">de Groot, G. J.</span>, and <span class="refAuthor">E. Lear</span>, <span class="refTitle">"Address Allocation for Private Internets"</span>, <span class="seriesInfo">BCP 5</span>, <span class="seriesInfo">RFC 1918</span>, <span class="seriesInfo">DOI 10.17487/RFC1918</span>, <time datetime="1996-02" class="refDate">February 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1918">https://www.rfc-editor.org/rfc/rfc1918</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6303">[RFC6303]</dt>
         <dd>
-<span class="refAuthor">Andrews, M.</span>, <span class="refTitle">"Locally Served DNS Zones"</span>, <span class="seriesInfo">BCP 163</span>, <span class="seriesInfo">RFC 6303</span>, <span class="seriesInfo">DOI 10.17487/RFC6303</span>, <time datetime="2011-07" class="refDate">July 2011</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6303">https://datatracker.ietf.org/doc/html/rfc6303</a>&gt;</span>. </dd>
+<span class="refAuthor">Andrews, M.</span>, <span class="refTitle">"Locally Served DNS Zones"</span>, <span class="seriesInfo">BCP 163</span>, <span class="seriesInfo">RFC 6303</span>, <span class="seriesInfo">DOI 10.17487/RFC6303</span>, <time datetime="2011-07" class="refDate">July 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6303">https://www.rfc-editor.org/rfc/rfc6303</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6761">[RFC6761]</dt>
         <dd>
-<span class="refAuthor">Cheshire, S.</span> and <span class="refAuthor">M. Krochmal</span>, <span class="refTitle">"Special-Use Domain Names"</span>, <span class="seriesInfo">RFC 6761</span>, <span class="seriesInfo">DOI 10.17487/RFC6761</span>, <time datetime="2013-02" class="refDate">February 2013</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6761">https://datatracker.ietf.org/doc/html/rfc6761</a>&gt;</span>. </dd>
+<span class="refAuthor">Cheshire, S.</span> and <span class="refAuthor">M. Krochmal</span>, <span class="refTitle">"Special-Use Domain Names"</span>, <span class="seriesInfo">RFC 6761</span>, <span class="seriesInfo">DOI 10.17487/RFC6761</span>, <time datetime="2013-02" class="refDate">February 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6761">https://www.rfc-editor.org/rfc/rfc6761</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7858">[RFC7858]</dt>
         <dd>
-<span class="refAuthor">Hu, Z.</span>, <span class="refAuthor">Zhu, L.</span>, <span class="refAuthor">Heidemann, J.</span>, <span class="refAuthor">Mankin, A.</span>, <span class="refAuthor">Wessels, D.</span>, and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Specification for DNS over Transport Layer Security (TLS)"</span>, <span class="seriesInfo">RFC 7858</span>, <span class="seriesInfo">DOI 10.17487/RFC7858</span>, <time datetime="2016-05" class="refDate">May 2016</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7858">https://datatracker.ietf.org/doc/html/rfc7858</a>&gt;</span>. </dd>
+<span class="refAuthor">Hu, Z.</span>, <span class="refAuthor">Zhu, L.</span>, <span class="refAuthor">Heidemann, J.</span>, <span class="refAuthor">Mankin, A.</span>, <span class="refAuthor">Wessels, D.</span>, and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Specification for DNS over Transport Layer Security (TLS)"</span>, <span class="seriesInfo">RFC 7858</span>, <span class="seriesInfo">DOI 10.17487/RFC7858</span>, <time datetime="2016-05" class="refDate">May 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7858">https://www.rfc-editor.org/rfc/rfc7858</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8484">[RFC8484]</dt>
       <dd>
-<span class="refAuthor">Hoffman, P.</span> and <span class="refAuthor">P. McManus</span>, <span class="refTitle">"DNS Queries over HTTPS (DoH)"</span>, <span class="seriesInfo">RFC 8484</span>, <span class="seriesInfo">DOI 10.17487/RFC8484</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8484">https://datatracker.ietf.org/doc/html/rfc8484</a>&gt;</span>. </dd>
+<span class="refAuthor">Hoffman, P.</span> and <span class="refAuthor">P. McManus</span>, <span class="refTitle">"DNS Queries over HTTPS (DoH)"</span>, <span class="seriesInfo">RFC 8484</span>, <span class="seriesInfo">DOI 10.17487/RFC8484</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8484">https://www.rfc-editor.org/rfc/rfc8484</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1563,7 +1751,7 @@ Special-Use Domain", listing this document as the reference.<a href="#section-8.
 <dl class="references">
 <dt id="I-D.ietf-add-dnr">[I-D.ietf-add-dnr]</dt>
         <dd>
-<span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Reddy, T.</span>, <span class="refAuthor">Wing, D.</span>, <span class="refAuthor">Cook, N.</span>, and <span class="refAuthor">T. Jensen</span>, <span class="refTitle">"DHCP and Router Advertisement Options for the Discovery of Network-designated Resolvers (DNR)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-add-dnr-06</span>, <time datetime="2022-03-22" class="refDate">22 March 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-add-dnr-06">https://datatracker.ietf.org/doc/html/draft-ietf-add-dnr-06</a>&gt;</span>. </dd>
+<span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Reddy, T.</span>, <span class="refAuthor">Wing, D.</span>, <span class="refAuthor">Cook, N.</span>, and <span class="refAuthor">T. Jensen</span>, <span class="refTitle">"DHCP and Router Advertisement Options for the Discovery of Network-designated Resolvers (DNR)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-add-dnr-08</span>, <time datetime="2022-06-12" class="refDate">12 June 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-add-dnr-08">https://datatracker.ietf.org/doc/html/draft-ietf-add-dnr-08</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-esni">[I-D.ietf-tls-esni]</dt>
         <dd>
@@ -1575,43 +1763,43 @@ Special-Use Domain", listing this document as the reference.<a href="#section-8.
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>&gt;</span>. </dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2132">[RFC2132]</dt>
         <dd>
-<span class="refAuthor">Alexander, S.</span> and <span class="refAuthor">R. Droms</span>, <span class="refTitle">"DHCP Options and BOOTP Vendor Extensions"</span>, <span class="seriesInfo">RFC 2132</span>, <span class="seriesInfo">DOI 10.17487/RFC2132</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2132">https://datatracker.ietf.org/doc/html/rfc2132</a>&gt;</span>. </dd>
+<span class="refAuthor">Alexander, S.</span> and <span class="refAuthor">R. Droms</span>, <span class="refTitle">"DHCP Options and BOOTP Vendor Extensions"</span>, <span class="seriesInfo">RFC 2132</span>, <span class="seriesInfo">DOI 10.17487/RFC2132</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2132">https://www.rfc-editor.org/rfc/rfc2132</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4861">[RFC4861]</dt>
         <dd>
-<span class="refAuthor">Narten, T.</span>, <span class="refAuthor">Nordmark, E.</span>, <span class="refAuthor">Simpson, W.</span>, and <span class="refAuthor">H. Soliman</span>, <span class="refTitle">"Neighbor Discovery for IP version 6 (IPv6)"</span>, <span class="seriesInfo">RFC 4861</span>, <span class="seriesInfo">DOI 10.17487/RFC4861</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4861">https://datatracker.ietf.org/doc/html/rfc4861</a>&gt;</span>. </dd>
+<span class="refAuthor">Narten, T.</span>, <span class="refAuthor">Nordmark, E.</span>, <span class="refAuthor">Simpson, W.</span>, and <span class="refAuthor">H. Soliman</span>, <span class="refTitle">"Neighbor Discovery for IP version 6 (IPv6)"</span>, <span class="seriesInfo">RFC 4861</span>, <span class="seriesInfo">DOI 10.17487/RFC4861</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4861">https://www.rfc-editor.org/rfc/rfc4861</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5507">[RFC5507]</dt>
         <dd>
-<span class="refAuthor">IAB</span>, <span class="refAuthor">Faltstrom, P., Ed.</span>, <span class="refAuthor">Austein, R., Ed.</span>, and <span class="refAuthor">P. Koch, Ed.</span>, <span class="refTitle">"Design Choices When Expanding the DNS"</span>, <span class="seriesInfo">RFC 5507</span>, <span class="seriesInfo">DOI 10.17487/RFC5507</span>, <time datetime="2009-04" class="refDate">April 2009</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5507">https://datatracker.ietf.org/doc/html/rfc5507</a>&gt;</span>. </dd>
+<span class="refAuthor">IAB</span>, <span class="refAuthor">Faltstrom, P., Ed.</span>, <span class="refAuthor">Austein, R., Ed.</span>, and <span class="refAuthor">P. Koch, Ed.</span>, <span class="refTitle">"Design Choices When Expanding the DNS"</span>, <span class="seriesInfo">RFC 5507</span>, <span class="seriesInfo">DOI 10.17487/RFC5507</span>, <time datetime="2009-04" class="refDate">April 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5507">https://www.rfc-editor.org/rfc/rfc5507</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6105">[RFC6105]</dt>
         <dd>
-<span class="refAuthor">Levy-Abegnoli, E.</span>, <span class="refAuthor">Van de Velde, G.</span>, <span class="refAuthor">Popoviciu, C.</span>, and <span class="refAuthor">J. Mohacsi</span>, <span class="refTitle">"IPv6 Router Advertisement Guard"</span>, <span class="seriesInfo">RFC 6105</span>, <span class="seriesInfo">DOI 10.17487/RFC6105</span>, <time datetime="2011-02" class="refDate">February 2011</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6105">https://datatracker.ietf.org/doc/html/rfc6105</a>&gt;</span>. </dd>
+<span class="refAuthor">Levy-Abegnoli, E.</span>, <span class="refAuthor">Van de Velde, G.</span>, <span class="refAuthor">Popoviciu, C.</span>, and <span class="refAuthor">J. Mohacsi</span>, <span class="refTitle">"IPv6 Router Advertisement Guard"</span>, <span class="seriesInfo">RFC 6105</span>, <span class="seriesInfo">DOI 10.17487/RFC6105</span>, <time datetime="2011-02" class="refDate">February 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6105">https://www.rfc-editor.org/rfc/rfc6105</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8106">[RFC8106]</dt>
         <dd>
-<span class="refAuthor">Jeong, J.</span>, <span class="refAuthor">Park, S.</span>, <span class="refAuthor">Beloeil, L.</span>, and <span class="refAuthor">S. Madanapalli</span>, <span class="refTitle">"IPv6 Router Advertisement Options for DNS Configuration"</span>, <span class="seriesInfo">RFC 8106</span>, <span class="seriesInfo">DOI 10.17487/RFC8106</span>, <time datetime="2017-03" class="refDate">March 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8106">https://datatracker.ietf.org/doc/html/rfc8106</a>&gt;</span>. </dd>
+<span class="refAuthor">Jeong, J.</span>, <span class="refAuthor">Park, S.</span>, <span class="refAuthor">Beloeil, L.</span>, and <span class="refAuthor">S. Madanapalli</span>, <span class="refTitle">"IPv6 Router Advertisement Options for DNS Configuration"</span>, <span class="seriesInfo">RFC 8106</span>, <span class="seriesInfo">DOI 10.17487/RFC8106</span>, <time datetime="2017-03" class="refDate">March 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8106">https://www.rfc-editor.org/rfc/rfc8106</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8174">https://datatracker.ietf.org/doc/html/rfc8174</a>&gt;</span>. </dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8415">[RFC8415]</dt>
         <dd>
-<span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Yourtchenko, A.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, <span class="refAuthor">Lemon, T.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">RFC 8415</span>, <span class="seriesInfo">DOI 10.17487/RFC8415</span>, <time datetime="2018-11" class="refDate">November 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8415">https://datatracker.ietf.org/doc/html/rfc8415</a>&gt;</span>. </dd>
+<span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Yourtchenko, A.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, <span class="refAuthor">Lemon, T.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">RFC 8415</span>, <span class="seriesInfo">DOI 10.17487/RFC8415</span>, <time datetime="2018-11" class="refDate">November 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8415">https://www.rfc-editor.org/rfc/rfc8415</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8446">[RFC8446]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8446">https://datatracker.ietf.org/doc/html/rfc8446</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8446">https://www.rfc-editor.org/rfc/rfc8446</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8880">[RFC8880]</dt>
       <dd>
-<span class="refAuthor">Cheshire, S.</span> and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"Special Use Domain Name 'ipv4only.arpa'"</span>, <span class="seriesInfo">RFC 8880</span>, <span class="seriesInfo">DOI 10.17487/RFC8880</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8880">https://datatracker.ietf.org/doc/html/rfc8880</a>&gt;</span>. </dd>
+<span class="refAuthor">Cheshire, S.</span> and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"Special Use Domain Name 'ipv4only.arpa'"</span>, <span class="seriesInfo">RFC 8880</span>, <span class="seriesInfo">DOI 10.17487/RFC8880</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8880">https://www.rfc-editor.org/rfc/rfc8880</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
