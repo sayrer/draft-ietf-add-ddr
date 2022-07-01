@@ -458,7 +458,9 @@ and thus prevent clients from switching to use encrypted DNS.
 Clients should be aware that it might not be possible to distinguish between
 resolvers that do not have any Designated Resolver and such an active attack.
 To limit the impact of discovery queries being dropped either maliciously or
-unintentionally, clients can re-send their SVCB queries periodically.
+unintentionally, clients can re-send their SVCB queries periodically. Clients
+SHOULD repeat queries, in the hope that the same behavior will deliver different
+results.
 
 {{Section 8.2 of !I-D.ietf-add-svcb-dns}} describes a second downgrade attack
 where an attacker can block connections to the encrypted DNS server,
